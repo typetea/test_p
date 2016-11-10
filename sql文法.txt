@@ -1,0 +1,45 @@
+create database データベース名 character set utf8 collate utf8_general_ci;
+
+drop database データベース名
+
+grant all privileges on データベース名.* to ユーザ名@localhost
+
+
+create user 'ユーザ名'@'localhost' identified by 'パスワード';
+
+マイグレーション作成
+ php artisan make:migration create_テーブル名_table --create=テーブル名(複数形)
+
+ FormHelper
+  Composer laravelcollective/html
+
+ config/app.php
+
+ サービスプロバイダー  providers
+	Collective\Html\HtmlServiceProvider::class
+
+ ファサード aliases
+        'Form' => Collective\Html\FormFacade::class,  // 追加
+        'Html' => Collective\Html\HtmlFacade::class,  // 追加
+
+
+php artisan migrate:rollback
+
+laravel補完機能
+
+        "platform": {
+            "php": "5.6.20"
+        }
+
+barryvdh/laravel-ide-helpe
+
+   'providers' => [
++        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+    ],
+
+php artisan ide-helper:generate
+
+
+doctrine/dbal
+
+ php artisan ide-helper:models
